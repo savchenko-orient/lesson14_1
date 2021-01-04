@@ -1,5 +1,5 @@
 'use strict';
-function DomElement(selector, height, width, bg, fontSize) {
+function DomElement(selector = '#someClass', height = '200px', width = '175px', bg = 'red', fontSize = '30px') {
     this.selector = selector;
     this.height = height;
     this.width = width;
@@ -11,14 +11,14 @@ function DomElement(selector, height, width, bg, fontSize) {
         if (i.startsWith('.') === true) {
             let newElem = document.createElement('div');
             newElem.className = i;
-            newElem.style.cssText = 'height: 150px; width: 150px; background-color: red; font-size: 50px';
+            newElem.style.cssText = `height: ${this.height}; width:${this.width}; background-color: ${this.bg}; font-size: ${this.fontSize}`;
             newElem.innerText = prompt('What is my name?');
             document.body.append(newElem);
             
         } else if (i.startsWith('#') === true) {
             let newElem = document.createElement('p');
             newElem.id = i;
-            newElem.style.cssText = 'height: 50px; width: 200px; background-color: green; font-size: 35px';
+            newElem.style.cssText = `height: ${this.height}; width:${this.width}; background-color: ${this.bg}; font-size: ${this.fontSize}`;
             newElem.innerText = prompt('What is my name?');
             document.body.append(newElem);
             
@@ -28,8 +28,8 @@ function DomElement(selector, height, width, bg, fontSize) {
     };
 }
 
-let elem = new DomElement('.class');
-let elem2 = new DomElement('#id');
+let elem = new DomElement('.classDiv', '100px', '300px', 'green', '25px');
+let elem2 = new DomElement('#idP', '50px', '500px', 'blue', '30px');
 elem.createElement();
 elem2.createElement();
 
